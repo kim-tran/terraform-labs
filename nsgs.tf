@@ -98,9 +98,9 @@ resource "azurerm_network_security_rule" "AllowSQLServer" {
 resource "azurerm_network_security_rule" "AllowRDP" {
     name = "AllowRDP"
     resource_group_name         = "${azurerm_resource_group.nsgs.name}"
-    network_security_group_name = azurerm_network_security_group.resource_group_default.name
+    network_security_group_name = "${azurerm_network_security_group.resource_group_default.name}"
 
-    priority                    = 100
+    priority                    = 1040
     access                      = "Allow"
     direction                   = "Inbound"
     protocol                    = "Tcp"
