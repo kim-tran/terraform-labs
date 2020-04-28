@@ -37,7 +37,7 @@ resource "azurerm_network_security_group" "resource_group_default" {
 resource "azurerm_network_security_rule" "AllowSSH" {
     name = "AllowSSH"
     resource_group_name         = "${azurerm_resource_group.nsgs.name}"
-    network_security_group_name = azurerm_network_security_group.resource_group_default.name
+    network_security_group_name = "${azurerm_network_security_group.resource_group_default.name}"
 
     priority                    = 1010
     access                      = "Allow"
@@ -52,7 +52,7 @@ resource "azurerm_network_security_rule" "AllowSSH" {
 resource "azurerm_network_security_rule" "AllowHTTP" {
     name = "AllowHTTP"
     resource_group_name         = "${azurerm_resource_group.nsgs.name}"
-    network_security_group_name = azurerm_network_security_group.resource_group_default.name
+    network_security_group_name = "${azurerm_network_security_group.resource_group_default.name}"
 
     priority                    = 1020
     access                      = "Allow"
@@ -68,7 +68,7 @@ resource "azurerm_network_security_rule" "AllowHTTP" {
 resource "azurerm_network_security_rule" "AllowHTTPS" {
     name = "AllowHTTPS"
     resource_group_name         = "${azurerm_resource_group.nsgs.name}"
-    network_security_group_name = azurerm_network_security_group.resource_group_default.name
+    network_security_group_name = "${azurerm_network_security_group.resource_group_default.name}"
 
     priority                    = 1021
     access                      = "Allow"
@@ -83,7 +83,7 @@ resource "azurerm_network_security_rule" "AllowHTTPS" {
 resource "azurerm_network_security_rule" "AllowSQLServer" {
     name = "AllowSQLServer"
     resource_group_name         = "${azurerm_resource_group.nsgs.name}"
-    network_security_group_name = azurerm_network_security_group.resource_group_default.name
+    network_security_group_name = "${azurerm_network_security_group.resource_group_default.name}"
 
     priority                    = 1030
     access                      = "Allow"
