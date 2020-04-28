@@ -8,25 +8,6 @@ resource "azurerm_resource_group" "nsgs" {
    tags         = "${var.tags}"
 }
 
-resource "azurerm_network_security_group" "resource_group" {
-   name = "ResourceGroup"
-   resource_group_name  = "${azurerm_resource_group.nsgs.name}"
-   location             = "${azurerm_resource_group.nsgs.location}"
-   tags                 = "${azurerm_resource_group.nsgs.tags}"
-
-    security_rule {
-        name                       = "PermittedPortsForIngress"
-        priority                   = 100
-        direction                  = "Inbound"
-        access                     = "Allow"
-        protocol                   = "Tcp"
-        source_port_range          = "*"
-        destination_port_ranges    = [ "22", "80", "443", "1443" ]
-        source_address_prefix      = "*"
-        destination_address_prefix = "*"
-  }
-}
-
 resource "azurerm_network_security_group" "resource_group_default" {
    name = "ResourceGroupDefault"
    resource_group_name  = "${azurerm_resource_group.nsgs.name}"
